@@ -56,7 +56,7 @@ describe('Enhancer Testing Project', () => {
         })
 
         test('Enhancement is greater than 14, durability decreased by 10', () => {
-            const item3 = {
+            const item4 = {
                 name: 'Lambda Pants',
                 durability: 90,
                 enhancement: 18
@@ -68,11 +68,11 @@ describe('Enhancer Testing Project', () => {
                 enhancement: 17
             }
 
-            expect(fail(item3).durability).toBe(expected.durability)
+            expect(fail(item4).durability).toBe(expected.durability)
         })
 
         test('Enhancement is less than 15, durability decreased by 5', () => {
-            const item3 = {
+            const item5 = {
                 name: 'Lambda Helmet',
                 durability: 90,
                 enhancement: 10
@@ -84,7 +84,25 @@ describe('Enhancer Testing Project', () => {
                 enhancement: 10
             }
 
-            expect(fail(item3).durability).toBe(expected.durability)
+            expect(fail(item5).durability).toBe(expected.durability)
+        })
+    })
+
+    describe('Get Enhancement Item Testing', () => {
+        test('Get New Enhanced Item', () => {
+            const item6 = {
+                name: 'Lambda Arms',
+                durability: 70,
+                enhancement: 10,
+            }
+
+            const expected = {
+                name: '[+10]Lambda Arms',
+                durability: 70,
+                enhancement: 10,
+            }
+
+            expect(get(item6).name).toBe(expected.name)
         })
     })
 })
